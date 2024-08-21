@@ -1,0 +1,67 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:local="clr-namespace:Module01Exercise01"
+             x:Class="Module01Exercise01.MainPage"
+             BackgroundColor="{DynamicResource LocalBackgroundColor}"
+             Title="User Page">
+
+    <ContentPage.Resources>
+        <Color x:Key="StaticTextColor">cornflowerblue</Color>
+        <FontAttributes x:Key="StaticFontAttribute">Bold</FontAttributes>
+
+        <Color x:Key="LocalBackgroundColor">lightpink</Color>
+
+    </ContentPage.Resources>
+    
+    <ScrollView>
+        <VerticalStackLayout
+        Padding="30,0"
+        Spacing="25">
+
+            <VerticalStackLayout Spacing="10"/>
+            <Label TextColor="Black"
+                   FontAttributes="{StaticResource StaticFontAttribute}"
+                   HorizontalOptions="Center"/>
+
+            <Label Text="{local:CurrentDateExtension}"
+                   FontAttributes="{StaticResource StaticFontAttribute}"
+                   HorizontalOptions="Center"/>
+
+            <Label Text="Name"
+                   TextColor="{StaticResource StaticTextColor}"/>
+            <Entry Placeholder="Name"
+                    x:Name="valuen"
+                   />
+
+            <Label Text="Email"
+                   TextColor="{StaticResource StaticTextColor}"/>
+            <Entry Placeholder="Email"
+                   x:Name="valuee"/>
+
+            <Label Text="Birth Date"
+                   TextColor="{StaticResource StaticTextColor}"/>
+            <DatePicker Format="ddd dd MMM"
+                        x:Name="valued"/>
+
+            <Label Text="Bio"
+                   TextColor="{StaticResource StaticTextColor}"/>
+            <Editor Placeholder="Enter your Bio Here"
+                    x:Name="valueb"/>
+
+            <Label TextColor="Black" Text="Want to change your background color? Choose:" />
+            <Button Text="Yellow Background" 
+                    Clicked="OnChangedBackgroundColorYellow"/>
+            <Button Text="Purple Background" 
+                    Clicked="OnChangedBackgroundColorPurple"/>
+            <Button Text="Red Background" 
+                    Clicked="OnChangedBackgroundColorRed"/>
+
+            <Button Text="Save Changes"
+                    Clicked="display_value_clicked"/>
+
+
+        </VerticalStackLayout>
+    </ScrollView>
+
+</ContentPage>
