@@ -14,9 +14,10 @@ namespace Module01Exercise01
         {
             string entry1 = "Name: " + valuen.Text;
             string entry2 = "Email: " + valuee.Text;
-            string entry4 = "Bio: " + valuen.Text;
+            string entry3 = "Birth Date: " + valued.Date.ToString("d");
+            string entry4 = "Bio: " + valueb.Text;
 
-            string message = $"{entry1}\n{entry2}\n{entry4}";
+            string message = $"{entry1}\n{entry2}\n{entry3}\n{entry4}";
 
             DisplayAlert("Success!!! These are your information", message, "Ok");
         }
@@ -33,6 +34,7 @@ namespace Module01Exercise01
         {
             this.Resources["LocalBackgroundColor"] = Colors.IndianRed;
         }
+
     }
 
 }

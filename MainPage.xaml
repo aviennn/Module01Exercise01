@@ -8,21 +8,18 @@
 
     <ContentPage.Resources>
         <Color x:Key="StaticTextColor">cornflowerblue</Color>
+        <Color x:Key="StaticTextColorForLightBG">black</Color>
         <FontAttributes x:Key="StaticFontAttribute">Bold</FontAttributes>
 
         <Color x:Key="LocalBackgroundColor">lightpink</Color>
-
     </ContentPage.Resources>
-    
+
     <ScrollView>
         <VerticalStackLayout
         Padding="30,0"
         Spacing="25">
 
             <VerticalStackLayout Spacing="10"/>
-            <Label TextColor="Black"
-                   FontAttributes="{StaticResource StaticFontAttribute}"
-                   HorizontalOptions="Center"/>
 
             <Label Text="{local:CurrentDateExtension}"
                    FontAttributes="{StaticResource StaticFontAttribute}"
@@ -30,38 +27,60 @@
 
             <Label Text="Name"
                    TextColor="{StaticResource StaticTextColor}"/>
-            <Entry Placeholder="Name"
-                    x:Name="valuen"
-                   />
+            <Entry x:Name="valuen"
+                   Placeholder="Name"
+                   Text="{Binding Text, Source={x:Reference valuen}}"
+                   PlaceholderColor="{StaticResource StaticTextColorForLightBG}"/>
+            <Label Text="{Binding Source={x:Reference valuen}, Path=Text}"/>
 
             <Label Text="Email"
                    TextColor="{StaticResource StaticTextColor}"/>
-            <Entry Placeholder="Email"
-                   x:Name="valuee"/>
+            <Entry x:Name="valuee"
+                   Placeholder="Email"
+                   Text="{Binding Text, Source={x:Reference valuee}}" 
+                   PlaceholderColor="{StaticResource StaticTextColorForLightBG}"/>
+            <Label Text="{Binding Source={x:Reference valuee}, Path=Text}"/>
 
             <Label Text="Birth Date"
                    TextColor="{StaticResource StaticTextColor}"/>
-            <DatePicker Format="ddd dd MMM"
-                        x:Name="valued"/>
+            <DatePicker x:Name="valued"
+                        Format="ddd dd MMM"/>
+            <Label Text="{Binding Source={x:Reference valued}, Path=Date, StringFormat='{}{0:d}'}"/>
 
             <Label Text="Bio"
                    TextColor="{StaticResource StaticTextColor}"/>
-            <Editor Placeholder="Enter your Bio Here"
-                    x:Name="valueb"/>
+            <Editor x:Name="valueb"
+                    Placeholder="Enter your Bio Here"
+                    Text="{Binding Text, Source={x:Reference valueb}}" 
+                    PlaceholderColor="{StaticResource StaticTextColorForLightBG}"/>
+            <Label Text="{Binding Source={x:Reference valueb}, Path=Text}"/>
 
             <Label TextColor="Black" Text="Want to change your background color? Choose:" />
-            <Button Text="Yellow Background" 
-                    Clicked="OnChangedBackgroundColorYellow"/>
-            <Button Text="Purple Background" 
-                    Clicked="OnChangedBackgroundColorPurple"/>
-            <Button Text="Red Background" 
-                    Clicked="OnChangedBackgroundColorRed"/>
+            
+            <Button Text="Yellow" 
+                    Clicked="OnChangedBackgroundColorYellow"
+                    TextColor="{StaticResource StaticTextColorForLightBG}"
+                    HeightRequest="100"
+                    WidthRequest="100"
+                    BackgroundColor="LightYellow"/>
+            <Button Text="Purple" 
+                    Clicked="OnChangedBackgroundColorPurple"
+                    HeightRequest="100"
+                    WidthRequest="100"
+                    TextColor="{StaticResource StaticTextColorForLightBG}"
+                    BackgroundColor="Purple"
+                    />
+            <Button Text="Red" 
+                    Clicked="OnChangedBackgroundColorRed"
+                    TextColor="{StaticResource StaticTextColorForLightBG}"
+                    BackgroundColor="IndianRed"
+                    HeightRequest="100"
+                    WidthRequest="100"/>
 
             <Button Text="Save Changes"
                     Clicked="display_value_clicked"/>
 
-
+            
         </VerticalStackLayout>
     </ScrollView>
-
 </ContentPage>
